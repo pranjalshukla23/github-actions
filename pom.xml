@@ -29,6 +29,23 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+    <deployment>
+      <target>cloudhub2</target>
+      <runtimeVersion>4.4.0</runtimeVersion>
+      <applicationName>${project.artifactId}</applicationName>
+      <environmentId>${env.ANYPOINT_ENV_ID}</environmentId>
+      <organizationId>${env.ANYPOINT_ORG_ID}</organizationId>
+      <provider>
+        <type>CH2</type>
+        <region>us-east-1</region>
+        <workers>
+          <amount>1</amount>
+          <type>MICRO</type>
+        </workers>
+      </provider>
+    </deployment>
+  </configuration>
 			</plugin>
 		</plugins>
 	</build>
