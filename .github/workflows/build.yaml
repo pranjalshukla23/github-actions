@@ -77,4 +77,5 @@ jobs:
           -Danypoint.username=$ANYPOINT_USERNAME \
           -Danypoint.password=$ANYPOINT_PASSWORD \
           -Danypoint.envId=$ANYPOINT_ENV_ID \
-          -Danypoint.orgId=$ANYPOINT_ORG_ID
+          -Danypoint.orgId=$ANYPOINT_ORG_ID \
+          -X
