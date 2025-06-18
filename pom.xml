@@ -34,8 +34,8 @@
       <target>cloudhub2</target>
       <runtimeVersion>4.4.0</runtimeVersion>
       <applicationName>${project.artifactId}</applicationName>
-      <environmentId>${env.ANYPOINT_ENV_ID}</environmentId>
-      <organizationId>${env.ANYPOINT_ORG_ID}</organizationId>
+      <environmentId>${anypoint.envId}</environmentId>
+	  <organizationId>${anypoint.orgId}</organizationId>
       <provider>
         <type>CH2</type>
         <region>us-east-1</region>
