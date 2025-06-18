@@ -30,14 +30,14 @@ jobs:
       run: |
         artifactName1=$(ls target/*.jar | head -1)
         commitHash=$(git rev-parse --short "$GITHUB_SHA")
-        artifactName2=$(ls target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
+        artifactName2=$(echo $artifactName1 | sed "s/.jar/-$commitHash.jar/")
         mv $artifactName1 $artifactName2
     - name: Upload artifact 
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-          name: artifacts
-          path: target/*.jar
-        
+        name: artifacts
+        path: target/*.jar
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -51,7 +51,7 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
         name: artifacts
     - name: Deploy to Sandbox
